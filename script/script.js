@@ -17,4 +17,13 @@ $(document).ready(function() {
 		$('.slider-frame').css('height', $height);
 		$('.slider-frame img').css('height', $height);
 	}
+
+
+
+	$('.gallery-imgs img').click(function(){
+		var loadimg = $(this).attr('src');
+		$('.ft-img img').attr('src', loadimg);
+	});
+
+
 });

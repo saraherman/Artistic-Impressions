@@ -1,0 +1,46 @@
+/* Autocracy Admin CSS */
+
+body {
+	color:#464646;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Rokkitt', serif;
+	color: #7e1619;
+	font-weight: normal;
+}
+
+label {
+	clear: both;
+	display: block;
+}
+
+input[type=text] {
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+textarea {
+	width: 100%;
+	min-height: 200px;
+}
+
+.module-fullwidth input[type=text] {
+	clear:none;
+	display: inline;
+}
+
+.col-wrap {
+	font-size:0;
+}
+
+.col {
+	width: 33.33%;
+	display: inline-block;
+	vertical-align: top;
+	font-size: 12px;
+	padding-left: 10px;
+	padding-right: 10px;
+	 -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}

@@ -1,53 +1,48 @@
-
 <?php
 /*
-* Template Name: Contact
-* Description: A Page Template with a content area, contact form, and google map.
+Template Name: Contact Page
 */
 ?>
 <?php get_header(); ?>
-	
-	
-	<div class="container">
-		<div class="content">
-			<div class="full">
-				<?php
-					if (have_posts()): while (have_posts()): the_post();
-						echo '<h1 class="uppercase">';
-						wp_title('');
-						 echo '</h1>';
-					endwhile; endif;
-				?>
-				<?php
-					if (have_posts()): while (have_posts()): the_post();
-						
-						the_content();
-					endwhile; endif;
-				?>
-				<!-- emsend.php is email.php, but renamed to prevent bots from scanning it and sending spam-->
-				<form action="<?php bloginfo('stylesheet_url'); ?>/emsend.php" method="post">
+<?php $mainoptions = get_option('main_theme_options'); ?>
+<div class="container">
+	<div class="content">
+		<div class="full">
+			<div class="gallery services single">
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+				<h1 class="uppercase"><?php the_title(); ?></h1>
+				<ul>
+					<h2>ARTISTIC IMPRESSIONS</h2>
+					<li><a href="mailto:<?php echo $mainoptions['email,']; ?>"><?php echo $mainoptions['email']; ?></a></li>
+					<li><?php echo $mainoptions['address']; ?></li>
+					<li><?php echo $mainoptions['phone']; ?></li>
+					<li><?php echo $mainoptions['fax']; ?></li>
+					<li><?php echo $mainoptions['hrs']; ?></li>
+				</ul>
+				<form action="<?php echo get_template_directory_uri(); ?>/mailer.php" method="post">
 					<div>
-						<input name="name" type="text" placeholder="Name" required>
-						<input name="email" type="email" placeholder="Email" required>
-						<input name="subject" class="caps" type="text" placeholder="Subject" required>
+						<input name="name" type="text" placeholder="Name" required="">
+						<input name="email" type="email" placeholder="Email" required="">
+						<input name="subject" class="caps" type="text" placeholder="Subject" required="">
+						<input type="hidden" value="<?php echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" name="currentURL">
 					</div>
-					<textarea name="comments2" placeholder="Messages"></textarea>
+					<textarea name="message" placeholder="Messages"></textarea>
 					<input name="submit" type="submit" value="send">
 				</form>
-
-			</div>
-				<?php 
-					if(isset($_GET['confirm'])){
-						if ($_GET['confirm']) {
-							echo "<p class='confirm'>Thank you for contacting us. We will contact you as soon as we can.</p>";
-						}
-					}
-				?>
-			<div class="info">
-				<p>Please bring information (contractor's plans, measurements, and pictures of the area you're remodeling) to better assist us in designing your dream remodel or new home.</p>
-			</div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3346.657052347165!2d-117.07250230000001!3d32.986448700000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbf0a9ee650a71%3A0x15c3917d24b707df!2s12225+World+Trade+Dr!5e0!3m2!1sen!2sus!4v1403813450446" width="100%" height="426" frameborder="0" style="border:0"></iframe>
-			
-		</div>
+				<div class="ft-img">
+					<?php 
+					if ( has_post_thumbnail() ) {
+						the_post_thumbnail();
+					} 
+					?>
+				</div>
+				<?php the_content(); ?>
+				<?php echo $mainoptions['map']; ?>
+			<?php endwhile; else: ?>
+			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+		<?php endif; ?>
 	</div>
-	<?php get_footer(); ?>
+</div>
+</div>
+</div>
+<?php get_footer(); ?>

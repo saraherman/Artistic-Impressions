@@ -13,6 +13,11 @@
 					} 
 					?>
 				</div>
+				<div class="gallery-imgs">
+					<ul>
+						<?php autoc_get_img('galleryphotos'); ?>
+					</ul>
+				</div>
 				<?php the_content(); ?>
 			<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
