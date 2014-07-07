@@ -36,7 +36,9 @@ Template Name: Contact Page
 					} 
 					?>
 				</div>
-				<?php the_content(); ?>
+				<div class="info">
+					<?php the_content(); ?>
+				</div>
 				<?php echo $mainoptions['map']; ?>
 			<?php endwhile; else: ?>
 			<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

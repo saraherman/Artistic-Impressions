@@ -5,16 +5,16 @@
 	<link rel="icon" 
 	type="image/png" 
 	href="images/favicon.png">
-
 	<!-- Google fonts: Jura and Open Sans -->
 	<link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+	<meta name="viewport" content="initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="mobileOptimized" content="width">
 	<!-- css, normalize fixes some cross browser problems -->
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/normalize.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/media.css">
-
 	<!-- nivo slider: css, script, and link to google jquery -->
 	<!-- while the full nivo slider files are under nivo slider, the css and js have been placed into style and script for convenience -->
 	<!-- Nivo Slider jQuery plugin requires jQuery v1.7+ to work -->
@@ -27,7 +27,6 @@
 		$('#slider').nivoSlider();
 	});
 	</script>
-
 	<!-- allows the height of the slider to change when the width does -->
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/script/script.js"></script>
 	<?php $mainoptions = get_option('main_theme_options'); ?>

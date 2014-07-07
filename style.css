@@ -415,7 +415,7 @@ margin-top: 40px;
 
 .content .gallery.services h2{
 	color: rgb(0, 169, 157);
-	line-height: 50px;
+	line-height: 25px;
 	font-size: 20px;
 	margin-bottom: 0px;
 }
@@ -447,6 +447,7 @@ margin-top: 40px;
 	box-sizing: border-box;         /* Opera/IE 8+ */
 	width: 100px;
 	color: #333;
+	position: relative;
 }
 .footer .nav-menu ul li:hover{
 	background-color: inherit;
@@ -459,6 +460,23 @@ margin-top: 40px;
 	color: rgb(0, 169, 157);
 
 }
+
+/*dropdown menu*/
+.footer .nav-menu ul li ul{
+	display: none;
+	position: absolute;
+}
+.footer .nav-menu ul li:hover > ul{
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	top: 30px;
+	left: 0px;
+}
+.footer .nav-menu ul li ul li{
+	display: block;
+}
+
 .info{
 	padding-bottom: 20px;
 	clear: both;
@@ -503,12 +521,13 @@ margin-top: 40px;
 }
 
 .gallery-imgs ul li {
-	width: 25%;
+	width: 20%;
 	max-height: 150px;
 	overflow: hidden;
 	display: inline-block;
 	vertical-align: top;
 	padding-left: 5px;
+	padding-bottom: 10px;
 	padding-right:5px;
 		-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */

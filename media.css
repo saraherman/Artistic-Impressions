@@ -141,3 +141,15 @@
 	
 	
 }
+
+@media(max-width: 360px){
+	.header{
+		padding: 0px;
+	}
+	.logo{
+		width: 100%;
+	}
+	.logo img{
+		width: 100%;
+	}
+}

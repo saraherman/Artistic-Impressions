@@ -1,33 +1,40 @@
-<?php 
-	
-	if ($_REQUEST) {	
-	
-		$prevURL = $_REQUEST['currentURL'];
+<?php
+$prevURL = $_REQUEST['currentURL'];
+	// email to send message to
+	$mailto = "info@artisticimpressionscmr.com";
 
-		if (isset($_REQUEST['name'])) {
-			$name = $_REQUEST['name'];
-		}
-		else {
-			$name = NULL;
-		}
+	/* Check all form inputs using check_input function */
+	$name = $_POST['name'];
+	$subject  = 'Contact Form: '.$_POST['subject'];
+	$email    = $_POST['email'];
+	$comments1 = $_POST['comments1'];
+	$comments2 = $_POST['comments2'];
 
-		if(isset($_REQUEST['email'])) {
-			$email = $_REQUEST['email'];
-		}
+	/* prepare the message for the e-mail */
+	$message = "The Artistic Impressions contact form has been submitted by:
 
-		if(isset($_REQUEST['subject'])) {
-			$subject = $_REQUEST['subject'];
-		}
+	Name: $name
+	E-mail: $email
+	URL: $subject
 
-		if(isset($_REQUEST['message'])) {
-			$message = $_REQUEST['message'];
-		}
-				
-		if (isset($name) && isset($email) && isset($message)) {
-			$message = $message.' | '.$email.' | '.$name;
-			mail('info@artisticimpressionscmr.com', $subject);
-			header('Location:'.$prevURL);
-		}
-	}
+	Comments:
+	$comments1$comments2
 
+	End of message
+	";
+	// In case any of our lines are larger than 70 characters, we should use wordwrap()
+	$message = wordwrap($message, 70, "\r\n");
+
+
+	$headers = 'From: ' .$_POST["email"]. "\r\n" .
+    'Reply-To: ' . $_POST["email"] . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
+	/* Send the message using mail() function */
+	mail($mailto, $subject, $message, $headers);
+	echo $mailto. $subject. $message. $headers;
+
+	/* Redirect visitor to the thank you page */
+	header('Location:'.$prevURL);
+	exit();
 ?>
