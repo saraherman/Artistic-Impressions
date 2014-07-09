@@ -37,6 +37,7 @@ Template Name: Contact Page
 					?>
 				</div>
 				<div class="info">
+					<?php echo $mainoptions['info']; ?>
 					<?php the_content(); ?>
 				</div>
 				<?php echo $mainoptions['map']; ?>

@@ -67,7 +67,9 @@ function main_theme_options_do_page() {
         <?php autoc_def_textfield($optionname, 'hrs'); ?>
         <label>Map Code</label>
         <?php autoc_def_textarea($optionname, 'map'); ?>
-
+        <h2>Miscellaneous</h2>
+        <label>Info</label>
+        <?php autoc_def_textarea($optionname, 'info'); ?>
         <p class="submit">
             <input type="submit" class="button-primary" value="<?php _e('Save Options', 'sampletheme'); ?>" />
         </p>

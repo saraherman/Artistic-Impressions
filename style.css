@@ -480,12 +480,14 @@ margin-top: 40px;
 .info{
 	padding-bottom: 20px;
 	clear: both;
+	font-size: 24px;
+	line-height: 24px;
 }
 .info p{
 	color: #fff;
 	margin-bottom: 0px;
 	padding: 0px 20px;
-	font-size: 24px;
+	
 }
 .content .info p{
 	color: rgb(71, 70, 70);
@@ -496,11 +498,6 @@ margin-top: 40px;
 .content div.info{
 	height: 100%;
 	min-height: 100%;
-}
-
-.confirm{
-	font-size: 14px;
-	color: rgb(0, 169, 157);
 }
 
 .gallery-imgs {
